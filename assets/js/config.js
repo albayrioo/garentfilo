@@ -1,0 +1,9 @@
+window.SITE_CONFIG = {
+  companyName: 'GARENT FİLO',
+  phoneDisplay: '905521211575',
+  phoneRaw: '905521211575',
+  whatsappRaw: '905078162654',
+  whatsappMessage: 'Merhaba, Zenta Filo üzerinden araç rezervasyonu yapmak istiyorum.',
+  locations: ['İstanbul Havalimanı', 'Sabiha Gökçen', 'Taksim', 'Kadıköy', 'Beşiktaş', 'Bursa Merkez'],
+  workingHours: '7/24 rezervasyon ve teslimat desteği'
+};
