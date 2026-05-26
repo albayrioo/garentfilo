@@ -6,32 +6,38 @@ const bodyFilter = document.getElementById('bodyFilter');
 const priceFilter = document.getElementById('priceFilter');
 const resetBtn = document.getElementById('resetFilters');
 
-function waLinkForCar(carName){
+function waLinkForCar(carName) {
   const msg = `${SITE_CONFIG.whatsappMessage} Araç: ${carName}`;
   return `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(msg)}`;
 }
 
-function applyConfig(){
+function applyConfig() {
+  document.title = `${SITE_CONFIG.companyName} | Araç Kiralama`;
   document.querySelectorAll('[data-company-name]').forEach(el => el.textContent = SITE_CONFIG.companyName);
   document.querySelectorAll('[data-phone-display]').forEach(el => el.textContent = SITE_CONFIG.phoneDisplay);
   document.querySelectorAll('[data-working-hours]').forEach(el => el.textContent = SITE_CONFIG.workingHours);
   document.querySelectorAll('[data-phone-link]').forEach(el => el.href = `tel:+${SITE_CONFIG.phoneRaw}`);
-  document.querySelectorAll('[data-wa-link]').forEach(el => el.href = `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`);
-  const locations = document.getElementById('locationsList');
-  SITE_CONFIG.locations.forEach(loc => {
-    const item = document.createElement('div');
-    item.textContent = loc;
-    locations.appendChild(item);
+  document.querySelectorAll('[data-wa-link]').forEach(el => {
+    el.href = `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`;
   });
 }
 
-function getFilteredCars(){
+function segmentLabel(segment) {
+  return segment === 'luks' ? 'Lüks' : segment === 'ortasegment' ? 'Orta Segment' : 'Ekonomik';
+}
+
+function bodyLabel(body) {
+  return body === 'suv' ? 'SUV' : body === 'panelvan' ? 'Panelvan' : body === 'hatchback' ? 'Hatchback' : 'Sedan';
+}
+
+function getFilteredCars() {
   const q = searchInput.value.trim().toLowerCase();
   const body = bodyFilter.value;
   const priceVal = priceFilter.value;
   const [min, max] = priceVal === 'all' ? [0, Infinity] : priceVal.split('-').map(Number);
+
   return [...window.CARS]
-    .sort((a,b)=>a.price-b.price)
+    .sort((a, b) => a.price - b.price)
     .filter(car => {
       const matchText = !q || car.name.toLowerCase().includes(q);
       const matchBody = body === 'all' || car.body === body;
@@ -41,68 +47,57 @@ function getFilteredCars(){
     });
 }
 
-function segmentLabel(segment){
-  return segment === 'luks' ? 'Lüks' : segment === 'ortasegment' ? 'Orta Segment' : 'Ekonomik';
-}
-
-function bodyLabel(body){
-  return body === 'suv' ? 'SUV' : body === 'panelvan' ? 'Panelvan' : body === 'hatchback' ? 'Hatchback' : 'Sedan';
-}
-
-function renderCars(){
+function renderCars() {
   const cars = getFilteredCars();
   resultCount.textContent = `${cars.length} araç listeleniyor`;
+
   grid.innerHTML = cars.map(car => `
-    <article class="card">
-      <div class="card-media">
-        <div class="car-photo-wrap">
-          <img class="car-photo" src="${car.image}" alt="${car.name}" loading="lazy">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="price-row">
-          <div>
-            <div class="price">${car.price.toLocaleString('tr-TR')} TL <small>Günlük</small></div>
+    <article class="card card-bayram">
+      <div class="card-inner">
+        <div class="card-media">
+          <div class="promo-badges" aria-label="Kampanya bilgisi">
+            <span class="promo-badge promo-left">Bayrama Özel</span>
+            <span class="promo-badge promo-right">%35’e Varan İndirim</span>
           </div>
+          <img class="car-photo" src="${car.image}" alt="${car.name}" loading="lazy" decoding="async">
+        </div>
+
+        <div class="price-row">
+          <div class="price">${car.price.toLocaleString('tr-TR')} TL <small>Günlük kiralama</small></div>
           <div class="pill">Depozito ${car.deposit.toLocaleString('tr-TR')} TL</div>
         </div>
-        <div>
-          <h3 style="margin:0 0 6px; font-size:1.25rem;">${car.name}</h3>
-          <div class="meta-pills">
-            <span class="pill">${segmentLabel(car.segment)}</span>
-            <span class="pill">${bodyLabel(car.body)}</span>
-            <span class="pill">${car.year} model</span>
+
+        <h3 class="card-title">${car.name}</h3>
+        <div class="meta-pills">
+          <span class="pill">${segmentLabel(car.segment)}</span>
+          <span class="pill">${bodyLabel(car.body)}</span>
+          <span class="pill">${car.year} Model</span>
+        </div>
+
+        <div class="specs">
+          <div class="spec"><strong>Yakıt Türü</strong><span>${car.fuel}</span></div>
+          <div class="spec"><strong>Vites</strong><span>${car.transmission}</span></div>
+        </div>
+
+        <div class="features-box">
+          <div class="features-title">Özellikler</div>
+          <div class="features">
+            ${car.features.map(f => `<span class="feature">${f}</span>`).join('')}
           </div>
         </div>
-        <div class="specs">
-          <div class="spec"><strong>Yakıt</strong>${car.fuel}</div>
-          <div class="spec"><strong>Vites</strong>${car.transmission}</div>
-        </div>
-        <div class="features">
-          ${car.features.map(f => `<span class="feature">${f}</span>`).join('')}
-        </div>
+
         <div class="cta-row">
-          <a class="btn btn-green" href="${waLinkForCar(car.name)}" target="_blank" rel="noopener">WhatsApp</a>
           <a class="btn btn-primary" href="tel:+${SITE_CONFIG.phoneRaw}">Hemen Ara</a>
+          <a class="btn btn-whatsapp" href="${waLinkForCar(car.name)}" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
     </article>
   `).join('');
 }
 
-function renderGallery(){
-  const gallery = document.getElementById('galleryGrid');
-  window.CARS.slice(0, 18).forEach(car => {
-    const item = document.createElement('div');
-    item.className = 'gallery-item';
-    item.innerHTML = `<img src="${car.image}" alt="${car.name}" loading="lazy">`;
-    gallery.appendChild(item);
-  });
-}
-
 document.getElementById('segmentChips').addEventListener('click', (e) => {
   const chip = e.target.closest('.chip');
-  if(!chip) return;
+  if (!chip) return;
   document.querySelectorAll('.chip').forEach(btn => btn.classList.remove('active'));
   chip.classList.add('active');
   state.segment = chip.dataset.segment;
@@ -122,19 +117,21 @@ resetBtn.addEventListener('click', () => {
 
 applyConfig();
 renderCars();
-renderGallery();
 
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
+
+window.addEventListener('load', () => {
+  const videos = document.querySelectorAll('video[autoplay]');
+  videos.forEach(video => {
+    const tryPlay = () => video.play().catch(() => {});
+    tryPlay();
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) tryPlay();
+          else video.pause();
+        });
+      }, { threshold: 0.15 });
+      observer.observe(video);
+    }
   });
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
+});

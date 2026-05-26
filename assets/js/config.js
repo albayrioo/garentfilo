@@ -1,9 +1,8 @@
 window.SITE_CONFIG = {
-  companyName: 'GARENT FİLO',
+  companyName: 'Garent Rent Filo',
   phoneDisplay: '905543423514',
   phoneRaw: '905543423514',
   whatsappRaw: '905530752552',
-  whatsappMessage: 'Merhaba, Garent Filo Araç Rezervasyonu Yapmak İstiyorum.',
-  locations: ['İstanbul Havalimanı', 'Sabiha Gökçen', 'Taksim', 'Kadıköy', 'Beşiktaş', 'Bursa Merkez'],
-  workingHours: '7/24 rezervasyon ve teslimat desteği'
+  whatsappMessage: 'Merhaba, Cordinalyus Rent Filo için araç rezervasyonu yapmak istiyorum.',
+  workingHours: '7/24 rezervasyon ve iletişim desteği'
 };
