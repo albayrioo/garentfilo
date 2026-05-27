@@ -1,6 +1,6 @@
 :root{
   --bg:#ffffff;
-  --bg-soft:#fff7ed;
+  --b:#fff7ed;
   --text:#0f172a;
   --muted:#5c6b84;
   --line:#ffe0b8;
@@ -50,7 +50,7 @@ button,input,select{font:inherit}
 .marquee-track span{font-size:1rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;background:linear-gradient(90deg,var(--blue) 0%,var(--blue-soft) 45%,var(--navy) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 
 .section{padding:88px 0}
-.section-soft{background:var(--bg-soft)}
+.section-soft{background:var(--b)}
 .section-title{margin-bottom:24px}
 .section-title.center{text-align:center}
 .section-title.narrow{max-width:760px;margin-inline:auto;margin-bottom:30px}
@@ -59,7 +59,7 @@ button,input,select{font:inherit}
 .section-title.light h2,.section-title.light p{color:#fff}
 .section-title.dark h2{color:var(--navy)}
 
-.intro-strip{padding-top:34px}
+.intro-strip{paddin:34px}
 .intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .intro-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow)}
 .intro-card h3{margin:0 0 8px;color:var(--navy)}
@@ -106,7 +106,7 @@ button,input,select{font:inherit}
 .features{display:flex;gap:8px;flex-wrap:wrap}
 .feature{padding:7px 9px;border-radius:999px;background:#f0f6ff;color:var(--navy);font-size:.74rem;font-weight:700;border:1px solid var(--line)}
 .cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.cta-row .btn{height:46px;padding-inline:10px;font-size:.88rem}
+.cta-row .btn{height:46px;paddin:10px;font-size:.88rem}
 
 .contact-panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;box-shadow:var(--shadow);display:grid;gap:18px;justify-items:center;text-align:center}
 .contact-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
@@ -120,7 +120,7 @@ button,input,select{font:inherit}
 .footer h3{margin:0 0 12px;font-size:1rem}
 .footer-list{display:grid;gap:10px}
 .footer-list a,.footer-list span{color:rgba(255,255,255,.82)}
-.floating-call{position:fixed;right:18px;bottom:18px;z-index:90;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 12px 30px rgba(18,42,102,.28)}
+.floatin{position:fixed;right:18px;bottom:18px;z-index:90;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 12px 30px rgba(18,42,102,.28)}
 
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -183,7 +183,7 @@ button,input,select{font:inherit}
   .hero-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}
   .marquee-track span{font-size:.86rem}
   .contact-big{font-size:1.5rem}
-  .floating-call{left:12px;right:12px;text-align:center}
+  .floatin{left:12px;right:12px;text-align:center}
   .card-inner{padding:13px}
   .card-media{min-height:140px;padding:10px}
   .car-photo{height:92px}
@@ -235,7 +235,7 @@ a[data-wa-link]:hover,
 }
 .btn-primary,
 .chip.active,
-.floating-call{
+.floatin{
   background:linear-gradient(135deg,#c62828 0%,#ffb347 48%,#7c2d12 100%);
   box-shadow:0 14px 30px rgba(255,122,24,.24);
 }

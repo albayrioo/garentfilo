@@ -15,7 +15,7 @@ function applyConfig() {
   document.title = `${SITE_CONFIG.companyName} | Araç Kiralama`;
   document.querySelectorAll('[data-company-name]').forEach(el => el.textContent = SITE_CONFIG.companyName);
   document.querySelectorAll('[data-phone-display]').forEach(el => el.textContent = SITE_CONFIG.phoneDisplay);
-  document.querySelectorAll('[data-working-hours]').forEach(el => el.textContent = SITE_CONFIG.workingHours);
+  document.querySelectorAll('[data-workin]').forEach(el => el.textContent = SITE_CONFIG.workingHours);
   document.querySelectorAll('[data-phone-link]').forEach(el => el.href = `tel:+${SITE_CONFIG.phoneRaw}`);
   document.querySelectorAll('[data-wa-link]').forEach(el => {
     el.href = `https://wa.me/${SITE_CONFIG.whatsappRaw}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`;
