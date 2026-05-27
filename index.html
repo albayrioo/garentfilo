@@ -13,9 +13,17 @@
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Garent Rent Filo | Araç Kiralama</title>
+
+<meta name="description" content="Garent Rent Filo - Premium araç kiralama hizmetleri">
+<meta property="og:title" content="Garent Rent Filo">
+<meta property="og:description" content="Premium araç kiralama hizmetleri">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#111111">
+<link rel="icon" href="favicon.ico">
+
   <meta name="description" content="Garent Rent Filo ile ücretsiz vale hizmetli günlük, haftalık ve kurumsal araç kiralama fırsatları.">
   <link rel="icon" href="assets/img/favicon.webp">
-  <meta name="theme-color" content="#ff7a18">
+  <meta name="theme-color" content="#c62828">
   <link rel="preload" href="assets/css/style.css" as="style">
   <link rel="preload" href="assets/img/logo.webp" as="image" type="image/webp">
   <link rel="preload" href="assets/video/hero.mp4" as="video" type="video/mp4">
@@ -170,36 +178,188 @@
     </section>
   </main>
 
-  <footer class="footer">
+  
+<section class="reservation-section" style="padding:40px 20px;background:#202124;color:#fff;text-align:center;">
+  <div class="container">
+    <h2 style="margin-bottom:15px;">Hızlı Rezervasyon</h2>
+    <p style="margin-bottom:25px;">Araç rezervasyonu ve fiyat bilgisi için bizimle hızlıca iletişime geçin.</p>
+
+    <form onsubmit="window.open('https://wa.me/905000000000?text=Merhaba%20araç%20rezervasyonu%20yapmak%20istiyorum','_blank'); return false;" 
+          style="max-width:700px;margin:auto;display:grid;gap:15px;">
+
+      <input type="text" placeholder="Ad Soyad" required 
+        style="padding:14px;border-radius:10px;border:none;">
+
+      <input type="tel" placeholder="Telefon Numaranız" required 
+        style="padding:14px;border-radius:10px;border:none;">
+
+      <input type="date" required 
+        style="padding:14px;border-radius:10px;border:none;">
+
+      <select required style="padding:14px;border-radius:10px;border:none;">
+        <option value="">Araç Seçiniz</option>
+        <option>Ekonomik Araç</option>
+        <option>SUV Araç</option>
+        <option>VIP Araç</option>
+      </select>
+
+      <button type="submit" 
+        style="padding:15px;border:none;border-radius:12px;background:#c62828;color:#fff;font-size:16px;cursor:pointer;">
+        Rezervasyon Yap
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<footer class="footer">
     <div class="container footer-grid">
       <div>
-        <div class="footer-brand" data-company-name>Garent Rent Filo</div>
-        <p class="footer-note">Türkiye genelinde ücretsiz vale hizmetli premium araç kiralama.</p>
+        <div class="footer-brand">Garent Otokoç Otomotiv Ticaret ve Sanayi A.Ş.</div>
+        <p class="footer-note">
+          Türkiye genelinde premium araç kiralama ve vale hizmeti sunmaktadır.
+        </p>
       </div>
+
       <div>
-        <h3>Lokasyonlar</h3>
+        <h3>Kurumsal Bilgiler</h3>
         <div class="footer-list">
-          <span>İstanbul Havalimanı</span>
-          <span>Sabiha Gökçen</span>
-          <span>Ankara Esenboğa</span>
-          <span>İzmir Adnan Menderes</span>
+          <span>Vergi No: 6490193531</span>
+          <span>MERSİS No: 0649019353100258</span>
+          <span>Ticaret Sicil No: 459231</span>
         </div>
       </div>
+
       <div>
         <h3>İletişim</h3>
         <div class="footer-list">
-          <a data-phone-link href="#"><strong data-phone-display></strong></a>
-          <a data-wa-link href="#" target="_blank" rel="noopener">WhatsApp rezervasyon</a>
-          <span data-working-hours></span>
+          <a href="tel:+905000000000">+90 500 000 00 00</a>
+          <a href="mailto:info@garentrentfilo.com">info@garentrentfilo.com</a>
+          <a href="https://wa.me/905000000000" target="_blank" rel="noopener">
+            WhatsApp Destek
+          </a>
+          <span>09:00 - 22:00</span>
+        </div>
+      </div>
+
+      <div>
+        <h3>Yasal</h3>
+        <div class="footer-list">
+          <a href="kvkk.html">KVKK Politikası</a>
+          <a href="gizlilik.html">Gizlilik Politikası</a>
+          <a href="kullanim-kosullari.html">Kullanım Koşulları</a>
+        <a href="cerez-politikasi.html">Çerez Politikası</a>
         </div>
       </div>
     </div>
-  </footer>
+</footer>
+
 
   <a class="floating-call" data-phone-link href="#">Hemen Ara</a>
 
   <script src="assets/js/config.js" defer></script>
   <script src="assets/js/cars.js" defer></script>
   <script src="assets/js/app.js" defer></script>
+
+
+
+
+
+
+
+<style>
+.cookie-popup-modern{
+position:fixed;
+left:50%;
+bottom:24px;
+transform:translateX(-50%);
+width:min(92%,520px);
+background:rgba(255,255,255,.96);
+backdrop-filter:blur(12px);
+border:1px solid rgba(200,200,200,.5);
+border-radius:18px;
+padding:18px;
+z-index:99999;
+box-shadow:0 15px 40px rgba(0,0,0,.18);
+font-family:Arial,sans-serif;
+}
+.cookie-popup-modern h4{
+margin:0 0 8px;
+color:#c62828;
+font-size:17px;
+}
+.cookie-popup-modern p{
+margin:0 0 14px;
+font-size:14px;
+line-height:1.5;
+color:#444;
+}
+.cookie-actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+.cookie-actions button,
+.cookie-actions a{
+flex:1;
+min-width:120px;
+padding:11px 14px;
+border-radius:12px;
+font-size:14px;
+font-weight:600;
+cursor:pointer;
+text-align:center;
+text-decoration:none;
+transition:.25s;
+}
+.cookie-accept{
+background:#c62828;
+color:#fff;
+border:none;
+}
+.cookie-reject{
+background:#efefef;
+color:#222;
+border:none;
+}
+.cookie-policy{
+background:#fff;
+border:1px solid #ddd;
+color:#333;
+}
+.cookie-actions button:hover,
+.cookie-actions a:hover{
+transform:translateY(-1px);
+}
+</style>
+
+<div class="cookie-popup-modern" id="cookiePopupModern">
+<h4>Çerez Tercihleri</h4>
+<p>Web sitemizde deneyiminizi geliştirmek ve hizmet kalitesini artırmak amacıyla çerezler kullanılmaktadır.</p>
+
+<div class="cookie-actions">
+<button class="cookie-accept" onclick="acceptCookies()">Kabul Et</button>
+<button class="cookie-reject" onclick="rejectCookies()">Reddet</button>
+<a class="cookie-policy" href="cerez-politikasi.html">Çerez Politikası</a>
+</div>
+</div>
+
+<script>
+function acceptCookies(){
+localStorage.setItem('cookieChoice','accepted');
+document.getElementById('cookiePopupModern').style.display='none';
+}
+function rejectCookies(){
+localStorage.setItem('cookieChoice','rejected');
+document.getElementById('cookiePopupModern').style.display='none';
+}
+document.addEventListener('DOMContentLoaded',function(){
+if(localStorage.getItem('cookieChoice')){
+const el=document.getElementById('cookiePopupModern');
+if(el){el.style.display='none';}
+}
+});
+</script>
+
 </body>
 </html>
